@@ -1,0 +1,46 @@
+/* ============================================================ */
+/* TAILWIND CSS IMPORTS */
+/* ============================================================ */
+/* Importa os componentes base, utilitários e personalizações do Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================ */
+/* VARIÁVEIS CSS E ESTILOS GLOBAIS */
+/* ============================================================ */
+:root {
+  /* Fonte principal do projeto */
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Modo escuro */
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0f172a;
+
+  /* Otimizações de renderização */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset de espaçamento e box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos do Body */
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Root container do React */
+#root {
+  min-height: 100vh;
+}

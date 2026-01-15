@@ -1,0 +1,25 @@
+## IBK - Instituto Brasil Koréia
+
+### Sobre
+Instituto Brasil Koréia (IBK) - Organização dedicada ao apoio, desenvolvimento, fomentação, articulação e promoção de projetos de educação, pesquisa, desenvolvimento, ciência, tecnologia e inovação.
+
+### Áreas de Atuação
+- Tecnologia da Informação
+- Biotecnologia e Sustentabilidade
+- Inteligência Artificial
+- Sistema de Telecomunicação
+- Redes Inteligentes
+- Indústria Petroquímica
+- Energias Renováveis
+- Tecnologias Alternativas
+
+### Contato
+- Telefone: (+55) 47 9 9706-0044
+- Email: contato@ibkbrasil.org.br
+- Website: https://ibkbrasil.org.br
+
+### Páginas
+- [Home](/): Página inicial do Instituto Brasil Koréia
+- [Institucional](/#institucional): Objetos e finalidade da entidade
+- [Áreas de Atuação](/#areas): Nossas áreas de expertise
+- [Contato](/#contato): Entre em contato conosco

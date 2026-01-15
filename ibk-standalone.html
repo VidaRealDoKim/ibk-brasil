@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instituto Brasil Koréia - Apoio ao desenvolvimento, pesquisa, ciência, tecnologia e inovação">
+    <title>IBK | Instituto Brasil Koréia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        #mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+        #overlay {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #overlay.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900">
+    <!-- Background Effects -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 -left-4 w-96 h-96 bg-[#003478]/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-20 right-10 w-72 h-72 bg-[#edc438]/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-80 h-80 bg-[#413972]/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="flex items-center gap-2">
+                    <img src="public_html/assets/logo.png" alt="IBK Brasil" class="h-12 w-12 object-contain" loading="lazy" />
+                </a>
+                <div class="hidden md:flex items-center gap-8 text-slate-800 font-medium">
+                    <a href="#home" class="hover:text-[#003478] transition-colors data-translate-home">Home</a>
+                    <a href="#institucional" class="hover:text-[#003478] transition-colors data-translate-institucional">Institucional</a>
+                    <a href="#areas" class="hover:text-[#003478] transition-colors data-translate-areas">Áreas de Atuação</a>
+                    <a href="#contato" class="hover:text-[#003478] transition-colors data-translate-contato">Contato</a>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <button id="lang-toggle" class="flex items-center gap-2 px-3 py-2 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer">
+                        <i data-lucide="globe" class="w-5 h-5 text-[#003478]" data-lang-pt></i>
+                        <span class="text-sm font-medium text-slate-700" data-lang-pt>PT</span>
+                        <span class="text-slate-400">/</span>
+                        <span class="text-sm font-medium text-slate-400" data-lang-en>EN</span>
+                        <i data-lucide="globe" class="w-5 h-5 text-slate-400" data-lang-en></i>
+                    </button>
+                </div>
+                <button id="menu-toggle" class="md:hidden p-2 hover:bg-slate-100 rounded-lg transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6 text-[#003478]"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-40"></div>
+
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-64 h-screen bg-white z-50 shadow-xl overflow-y-auto pt-20">
+        <div class="px-6 space-y-4">
+            <a href="#home" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-home">Home</a>
+            <a href="#institucional" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-institucional">Institucional</a>
+            <a href="#areas" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-areas">Áreas de Atuação</a>
+            <a href="#contato" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-contato">Contato</a>
+            <hr class="my-4" />
+            <div class="space-y-3">
+                <p class="text-xs uppercase tracking-widest text-slate-500 font-semibold" data-mobile-redes>Redes Sociais</p>
+                <div class="flex gap-3">
+                    <a href="https://twitter.com" target="_blank" rel="noopener" class="p-2 hover:bg-slate-100 rounded-lg transition-colors text-[#003478]">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener" class="p-2 hover:bg-slate-100 rounded-lg transition-colors text-[#003478]">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="p-2 hover:bg-slate-100 rounded-lg transition-colors text-[#003478]">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="p-2 hover:bg-slate-100 rounded-lg transition-colors text-[#003478]">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+            <div class="text-center lg:text-left space-y-6">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#003478] to-[#002c73] bg-clip-text text-transparent leading-tight" data-hero-title>
+                    Instituto Brasil Koréia
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-600 max-w-3xl" data-hero-subtitle>
+                    Apoio, desenvolvimento, fomentação, articulação e promoção de projetos de educação, pesquisa, desenvolvimento, ciência, tecnologia e inovação.
+                </p>
+                <div class="flex flex-wrap lg:justify-start justify-center gap-3">
+                    <a href="https://wa.me/5547997060044?text=Ol%C3%A1%20IBK%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] px-6 py-3 md:px-7 md:py-3.5 rounded-full font-semibold text-white hover:shadow-lg shadow-[#25D366]/30 transition-all text-sm md:text-base">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span data-hero-btn-whatsapp>WhatsApp</span>
+                    </a>
+                    <a href="mailto:contato@ibkbrasil.org.br?subject=Contato%20IBK&body=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre..." class="inline-flex items-center gap-2 bg-white border border-[#003478] text-[#003478] px-6 py-3 md:px-7 md:py-3.5 rounded-full font-semibold hover:bg-[#003478]/5 transition-all shadow-sm hover:shadow-md text-sm md:text-base">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        <span data-hero-btn-email>E-mail</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -inset-4 bg-gradient-to-br from-[#003478]/10 via-[#edc438]/10 to-[#002c73]/10 rounded-3xl blur-2xl"></div>
+                <div class="relative overflow-hidden rounded-3xl border border-slate-200 shadow-2xl aspect-[4/3] md:aspect-[16/10]">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80" alt="Inovação tecnológica em manufatura" class="w-full h-full object-cover" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#003478]/50 via-transparent to-[#002c73]/40"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <p class="text-sm uppercase tracking-[0.2em] text-[#edc438]">Tech & Inovação</p>
+                        <p class="text-lg font-semibold" data-hero-caption>Conectando Brasil e Coreia do Sul em tecnologia e pesquisa aplicada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas Section -->
+    <section id="areas" class="py-20 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#003478] to-[#002c73] bg-clip-text text-transparent" data-areas-title>
+                    Áreas de Atuação
+                </h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto" data-areas-subtitle>
+                    Expertise em múltiplas áreas estratégicas para o desenvolvimento tecnológico e científico
+                </p>
+            </div>
+
+            <!-- Highlighted banner with imagery -->
+            <div class="grid lg:grid-cols-3 gap-6 mb-10">
+                <div class="relative lg:col-span-2 overflow-hidden rounded-3xl border border-slate-200 shadow-xl aspect-[16/9]">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80" alt="Inovação e colaboração" class="w-full h-full object-cover" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#003478]/70 via-[#002c73]/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <p class="text-sm uppercase tracking-[0.2em] text-[#edc438]">Inovação Coreana</p>
+                        <p class="text-lg font-semibold" data-areas-banner-title>Ecossistema de pesquisa, 5G e inteligência artificial aplicados ao Brasil.</p>
+                    </div>
+                </div>
+                <div class="p-6 rounded-3xl bg-gradient-to-br from-[#003478]/8 via-white to-[#edc438]/10 border border-slate-200 shadow-lg flex flex-col gap-3">
+                    <p class="text-sm uppercase tracking-[0.18em] text-[#003478]" data-destaque-title>Destaque</p>
+                    <h3 class="text-2xl font-bold text-[#002c73] leading-tight" data-areas-banner-desc>Pontes tecnológicas Brasil–Coreia</h3>
+                    <p class="text-slate-700">Programas conjuntos, transferência de tecnologia e laboratórios compartilhados para acelerar resultados.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all hover:-translate-y-2 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 to-[#002c73]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-[#003478]">
+                            <i data-lucide="globe-2" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3" data-area-ti>Tecnologia da Informação</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Soluções que visam a produção, armazenamento, transmissão, acesso, segurança e uso das informações.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all hover:-translate-y-2 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 to-[#413972]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-[#003478]">
+                            <i data-lucide="dna" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3" data-area-biotech>Biotecnologia e Sustentabilidade</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Tecnologia baseada nas ciências biológicas para manipulação de organismos vivos em diversos níveis.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all hover:-translate-y-2 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 to-[#002c73]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-[#003478]">
+                            <i data-lucide="bot" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3" data-area-ai>Inteligência Artificial</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Estudo da computação que busca imitar o funcionamento dos neurônios humanos em máquinas.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all hover:-translate-y-2 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 to-[#413972]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-[#003478]">
+                            <i data-lucide="satellite-dish" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3" data-area-telecom>Sistema de Telecomunicação</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Equipamentos na aquisição, armazenamento, manipulação, gestão e transmissão de voz e dados.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all hover:-translate-y-2 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 to-[#002c73]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-[#003478]">
+                            <i data-lucide="zap" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3" data-area-networks>Redes Inteligentes</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Controle preciso do consumo de eletricidade através de conexões com medidores inteligentes.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all hover:-translate-y-2 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 to-[#413972]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-[#003478]">
+                            <i data-lucide="flask-conical" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3" data-area-petro>Indústria Petroquímica</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Área da química relacionada aos derivados de petróleo e gás natural.</p>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all hover:-translate-y-2 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 to-[#002c73]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-[#003478]">
+                            <i data-lucide="sun" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3" data-area-energy>Energias Renováveis</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Energias resultantes de recursos renováveis e inesgotáveis como solar, hídrica e eólica.</p>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="group relative p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all hover:-translate-y-2 cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 to-[#413972]/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity"></div>
+                    <div class="relative">
+                        <div class="mb-4 text-[#003478]">
+                            <i data-lucide="wrench" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3" data-area-tech-alt>Tecnologias Alternativas</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Uso de fatores de produção abundantes localmente e minimização dos recursos escassos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institucional Section -->
+    <section id="institucional" class="py-20 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#003478] to-[#002c73] bg-clip-text text-transparent" data-stats-title>
+                    Objetos e Finalidade da Entidade
+                </h2>
+                <p class="text-xl text-slate-700 max-w-3xl mx-auto mb-8">
+                    O Instituto IBK tem como missão o apoio, desenvolvimento, fomentação, articulação e a promoção de projetos de educação, pesquisa, desenvolvimento, ciência, tecnologia e inovação.
+                </p>
+                <p class="text-slate-600 max-w-2xl mx-auto">
+                    Disponibilizamos uma equipe de profissionais multidisciplinar, aliados a equipamentos e softwares de alta tecnologia em uma vasta rede de contatos para fazer cumprir a nossa missão com primor.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-md hover:shadow-lg hover:border-[#003478]/50 transition-all relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/5 via-transparent to-[#002c73]/5 pointer-events-none"></div>
+                    <h3 class="text-2xl font-bold text-[#003478] mb-3 relative" data-obj-apoiar>APOIAR</h3>
+                    <p class="text-slate-600 leading-relaxed relative" data-obj-apoiar-desc>Apoio técnico, financeiro e moral de acordo com cada caso e interesses do instituto.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all">
+                    <h3 class="text-2xl font-bold text-[#003478] mb-3" data-obj-integrar>INTEGRAR</h3>
+                    <p class="text-slate-600 leading-relaxed" data-obj-integrar-desc>Integração entre projetos de educação, pesquisa, desenvolvimento, ciência e tecnologia.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all">
+                    <h3 class="text-2xl font-bold text-[#003478] mb-3" data-obj-desenvolver>DESENVOLVER</h3>
+                    <p class="text-slate-600 leading-relaxed" data-obj-desenvolver-desc>Desenvolvimento econômico, cultural e educacional através da inovação.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all">
+                    <h3 class="text-2xl font-bold text-[#003478] mb-3" data-obj-realizar>REALIZAR</h3>
+                    <p class="text-slate-600 leading-relaxed" data-obj-realizar-desc>Realização de projetos que promovam avanços científicos e tecnológicos.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all">
+                    <h3 class="text-2xl font-bold text-[#003478] mb-3" data-obj-articular>ARTICULAR</h3>
+                    <p class="text-slate-600 leading-relaxed" data-obj-articular-desc>Articulação entre diferentes setores para fomentar a inovação.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all">
+                    <h3 class="text-2xl font-bold text-[#003478] mb-3" data-obj-promover>PROMOVER</h3>
+                    <p class="text-slate-600 leading-relaxed" data-obj-promover-desc>Promoção de pesquisas, ciência e tecnologia para o desenvolvimento.</p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#003478]/40 transition-all">
+                    <h3 class="text-2xl font-bold text-[#003478] mb-3" data-obj-elaborar>ELABORAR</h3>
+                    <p class="text-slate-600 leading-relaxed" data-obj-elaborar-desc>Elaboração de estratégias e projetos inovadores com impacto social.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-lg">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">
+                    Brasil e a Tecnologia
+                </h2>
+                    <p class="text-slate-600 text-lg mb-8 max-w-4xl mx-auto text-center">
+                        Segundo a CNI (Confederação Nacional da Indústria, 2020), o Brasil ocupa a 62ª colocação no Índice Global de Inovação (IGI), quatro posições acima em comparação a 2019. O ranking abrange 131 países.
+                    </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="p-6">
+                            <div class="text-4xl md:text-5xl font-bold text-[#003478] mb-2">62º</div>
+                            <div class="text-slate-600">Posição no IGI</div>
+                    </div>
+                    <div class="p-6">
+                            <div class="text-4xl md:text-5xl font-bold text-[#002c73] mb-2">5º</div>
+                            <div class="text-slate-600">Importação - Coreia do Sul</div>
+                    </div>
+                    <div class="p-6">
+                            <div class="text-4xl md:text-5xl font-bold text-[#003478] mb-2">11º</div>
+                            <div class="text-slate-600">Exportação - Coreia do Sul</div>
+                    </div>
+                </div>
+                <div class="mt-10 grid md:grid-cols-2 gap-4">
+                    <div class="relative overflow-hidden rounded-2xl border border-slate-200 shadow-md aspect-video">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" alt="Laboratório e inovação" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white text-sm">P&D colaborativo e testes de materiais avançados.</div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-2xl border border-slate-200 shadow-md aspect-video">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Parcerias e networking" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white text-sm">Parcerias estratégicas com hubs coreanos e brasileiros.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-20 px-4 relative">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#003478] to-[#002c73] bg-clip-text text-transparent" data-contact-title>
+                    Entre em Contato
+                </h2>
+                <p class="text-slate-600 text-lg" data-contact-subtitle>
+                    Nossa equipe técnica está pronta para lhe atender
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-md">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Seu Nome</label>
+                        <input type="text" class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-[#003478] focus:outline-none transition-colors" placeholder="Digite seu nome">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Seu E-mail</label>
+                        <input type="email" class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-[#003478] focus:outline-none transition-colors" placeholder="seu@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Sua Mensagem (opcional)</label>
+                        <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-white border border-slate-200 focus:border-[#003478] focus:outline-none transition-colors resize-none" placeholder="Digite sua mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-[#003478] to-[#002c73] px-8 py-4 rounded-full font-semibold text-white hover:from-[#002c73] hover:to-[#003478] transition-all shadow-lg shadow-[#003478]/20">
+                        Enviar
+                    </button>
+                </form>
+            </div>
+
+            <div class="mt-8 space-y-4">
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <a href="https://wa.me/5547997060044?text=Ol%C3%A1%20IBK%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] px-6 py-3 rounded-full font-semibold text-white shadow-md hover:shadow-lg transition-all">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span data-contact-whatsapp>WhatsApp</span>
+                    </a>
+                    <a href="mailto:contato@ibkbrasil.org.br?subject=Contato%20IBK&body=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre..." class="inline-flex items-center justify-center gap-2 bg-white border border-[#003478] text-[#003478] px-6 py-3 rounded-full font-semibold hover:bg-[#003478]/5 transition-all shadow-sm hover:shadow-md">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        <span data-contact-email-label>E-mail</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-slate-200 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col items-center gap-8 mb-8 text-center">
+                <div>
+                    <h3 class="text-sm font-semibold text-[#003478] uppercase tracking-widest mb-4" data-footer-contact>Contato</h3>
+                    <p class="text-slate-600">contato@ibkbrasil.org.br</p>
+                    <p class="text-slate-600">Phone: +55 47 9 9706-0044</p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-[#003478] uppercase tracking-widest mb-4" data-footer-social>Redes Sociais</h3>
+                    <div class="flex justify-center gap-3">
+                        <a href="https://twitter.com" target="_blank" rel="noopener" title="Twitter" class="p-2 hover:bg-white rounded-lg transition-colors text-[#003478] hover:shadow-md">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook" class="p-2 hover:bg-white rounded-lg transition-colors text-[#003478] hover:shadow-md">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" title="Instagram" class="p-2 hover:bg-white rounded-lg transition-colors text-[#003478] hover:shadow-md">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn" class="p-2 hover:bg-white rounded-lg transition-colors text-[#003478] hover:shadow-md">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" title="YouTube" class="p-2 hover:bg-white rounded-lg transition-colors text-[#003478] hover:shadow-md">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 pt-8 text-center text-slate-500">
+                <p data-footer-copy>&copy; 2026 Instituto Brasil Koréia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+
+            // Language Toggle
+            const langToggle = document.getElementById('lang-toggle');
+            let currentLang = localStorage.getItem('language') || 'pt';
+        
+        if (!langToggle) {
+            console.error('Lang toggle button not found');
+        }
+
+        const translations = {
+            pt: {
+                'data-translate-home': 'Home',
+                'data-translate-institucional': 'Institucional',
+                'data-translate-areas': 'Áreas de Atuação',
+                'data-translate-contato': 'Contato',
+                'hero-title': 'Instituto Brasil Koréia',
+                'hero-subtitle': 'Apoio, desenvolvimento, fomentação, articulação e promoção de projetos de educação, pesquisa, desenvolvimento, ciência, tecnologia e inovação.',
+                'hero-btn-whatsapp': 'WhatsApp',
+                'hero-btn-email': 'E-mail',
+                'hero-caption': 'Conectando Brasil e Coreia do Sul em tecnologia e pesquisa aplicada.',
+                'areas-title': 'Áreas de Atuação',
+                'areas-subtitle': 'Nossos setores de especialização e atuação',
+                'areas-banner-title': 'Inovação em 8 Áreas Estratégicas',
+                'areas-banner-desc': 'Desenvolvemos soluções tecnológicas avançadas e fomentamos projetos em múltiplos setores.',
+                'area-ti': 'Tecnologia da Informação',
+                'area-biotech': 'Biotecnologia',
+                'area-ai': 'Inteligência Artificial',
+                'area-telecom': 'Telecomunicações',
+                'area-networks': 'Redes e Cibersegurança',
+                'area-petro': 'Petroquímica',
+                'area-energy': 'Energias Renováveis',
+                'area-tech-alt': 'Tecnologias Alternativas',
+                'destaque-title': 'Projetos em Destaque',
+                'destaque-desc': 'Parcerias estratégicas com instituições de pesquisa de excelência',
+                'stats-title': 'Objetivos Institucionais',
+                'stats-subtitle': 'Missão e visão estratégica',
+                'obj-apoiar': 'APOIAR',
+                'obj-integrar': 'INTEGRAR',
+                'obj-desenvolver': 'DESENVOLVER',
+                'obj-realizar': 'REALIZAR',
+                'obj-articular': 'ARTICULAR',
+                'obj-promover': 'PROMOVER',
+                'obj-elaborar': 'ELABORAR',
+                'obj-apoiar-desc': 'Iniciativas de pesquisa, inovação e desenvolvimento tecnológico',
+                'obj-integrar-desc': 'Ecossistemas de inovação e colaboração Brasil-Coreia',
+                'obj-desenvolver-desc': 'Capacidades em tecnologia avançada e ciência aplicada',
+                'obj-realizar-desc': 'Projetos estratégicos de impacto socioeconômico',
+                'obj-articular-desc': 'Parcerias público-privadas em inovação',
+                'obj-promover-desc': 'Transferência de tecnologia e conhecimento',
+                'obj-elaborar-desc': 'Políticas públicas para ciência e inovação',
+                'stats-label-1': 'Áreas de Atuação',
+                'stats-label-2': 'Parcerias Estratégicas',
+                'stats-label-3': 'Projetos em Desenvolvimento',
+                'contact-title': 'Entre em Contato',
+                'contact-subtitle': 'Vamos conversar sobre como podemos ajudar sua inovação',
+                'contact-name': 'Nome completo',
+                'contact-email': 'E-mail',
+                'contact-message': 'Mensagem',
+                'contact-send': 'Enviar mensagem',
+                'contact-whatsapp': 'WhatsApp',
+                'contact-email-label': 'E-mail',
+                'footer-contact': 'Contato',
+                'footer-social': 'Redes Sociais',
+                'footer-copy': '© 2026 Instituto Brasil Koréia. Todos os direitos reservados.',
+                'mobile-redes': 'Redes Sociais'
+            },
+            en: {
+                'data-translate-home': 'Home',
+                'data-translate-institucional': 'About',
+                'data-translate-areas': 'Areas',
+                'data-translate-contato': 'Contact',
+                'hero-title': 'Korea Brazil Institute',
+                'hero-subtitle': 'Support, development, promotion, articulation and encouragement of education, research, development, science, technology and innovation projects.',
+                'hero-btn-whatsapp': 'WhatsApp',
+                'hero-btn-email': 'Email',
+                'hero-caption': 'Connecting Brazil and South Korea in technology and applied research.',
+                'areas-title': 'Areas of Operation',
+                'areas-subtitle': 'Our specialization sectors and areas of operation',
+                'areas-banner-title': 'Innovation in 8 Strategic Areas',
+                'areas-banner-desc': 'We develop advanced technological solutions and foster projects across multiple sectors.',
+                'area-ti': 'Information Technology',
+                'area-biotech': 'Biotechnology',
+                'area-ai': 'Artificial Intelligence',
+                'area-telecom': 'Telecommunications',
+                'area-networks': 'Networks & Cybersecurity',
+                'area-petro': 'Petrochemicals',
+                'area-energy': 'Renewable Energy',
+                'area-tech-alt': 'Alternative Technologies',
+                'destaque-title': 'Featured Projects',
+                'destaque-desc': 'Strategic partnerships with excellent research institutions',
+                'stats-title': 'Institutional Objectives',
+                'stats-subtitle': 'Strategic mission and vision',
+                'obj-apoiar': 'SUPPORT',
+                'obj-integrar': 'INTEGRATE',
+                'obj-desenvolver': 'DEVELOP',
+                'obj-realizar': 'REALIZE',
+                'obj-articular': 'ARTICULATE',
+                'obj-promover': 'PROMOTE',
+                'obj-elaborar': 'ELABORATE',
+                'obj-apoiar-desc': 'Research, innovation and technological development initiatives',
+                'obj-integrar-desc': 'Brazil-Korea innovation and collaboration ecosystems',
+                'obj-desenvolver-desc': 'Advanced technology and applied science capabilities',
+                'obj-realizar-desc': 'Strategic projects with socio-economic impact',
+                'obj-articular-desc': 'Public-private partnerships in innovation',
+                'obj-promover-desc': 'Technology and knowledge transfer',
+                'obj-elaborar-desc': 'Public policies for science and innovation',
+                'stats-label-1': 'Operation Areas',
+                'stats-label-2': 'Strategic Partnerships',
+                'stats-label-3': 'Projects in Development',
+                'contact-title': 'Get in Touch',
+                'contact-subtitle': 'Let\'s talk about how we can help your innovation',
+                'contact-name': 'Full name',
+                'contact-email': 'Email',
+                'contact-message': 'Message',
+                'contact-send': 'Send message',
+                'contact-whatsapp': 'WhatsApp',
+                'contact-email-label': 'Email',
+                'footer-contact': 'Contact',
+                'footer-social': 'Social Media',
+                'footer-copy': '© 2026 Korea Brazil Institute. All rights reserved.',
+                'mobile-redes': 'Social Media'
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update navbar links
+            document.querySelectorAll('[data-translate-home]').forEach(el => el.textContent = translations[lang]['data-translate-home']);
+            document.querySelectorAll('[data-translate-institucional]').forEach(el => el.textContent = translations[lang]['data-translate-institucional']);
+            document.querySelectorAll('[data-translate-areas]').forEach(el => el.textContent = translations[lang]['data-translate-areas']);
+            document.querySelectorAll('[data-translate-contato]').forEach(el => el.textContent = translations[lang]['data-translate-contato']);
+            
+            // Update hero section
+            if (document.querySelector('[data-hero-title]')) document.querySelector('[data-hero-title]').textContent = translations[lang]['hero-title'];
+            if (document.querySelector('[data-hero-subtitle]')) document.querySelector('[data-hero-subtitle]').textContent = translations[lang]['hero-subtitle'];
+            document.querySelectorAll('[data-hero-btn-whatsapp]').forEach(el => el.textContent = translations[lang]['hero-btn-whatsapp']);
+            document.querySelectorAll('[data-hero-btn-email]').forEach(el => el.textContent = translations[lang]['hero-btn-email']);
+            if (document.querySelector('[data-hero-caption]')) document.querySelector('[data-hero-caption]').textContent = translations[lang]['hero-caption'];
+            
+            // Update areas section
+            if (document.querySelector('[data-areas-title]')) document.querySelector('[data-areas-title]').textContent = translations[lang]['areas-title'];
+            if (document.querySelector('[data-areas-subtitle]')) document.querySelector('[data-areas-subtitle]').textContent = translations[lang]['areas-subtitle'];
+            if (document.querySelector('[data-areas-banner-title]')) document.querySelector('[data-areas-banner-title]').textContent = translations[lang]['areas-banner-title'];
+            if (document.querySelector('[data-areas-banner-desc]')) document.querySelector('[data-areas-banner-desc]').textContent = translations[lang]['areas-banner-desc'];
+            if (document.querySelector('[data-destaque-title]')) document.querySelector('[data-destaque-title]').textContent = translations[lang]['destaque-title'];
+            if (document.querySelector('[data-destaque-desc]')) document.querySelector('[data-destaque-desc]').textContent = translations[lang]['destaque-desc'];
+            
+            // Update area labels
+            document.querySelectorAll('[data-area-ti]').forEach(el => el.textContent = translations[lang]['area-ti']);
+            document.querySelectorAll('[data-area-biotech]').forEach(el => el.textContent = translations[lang]['area-biotech']);
+            document.querySelectorAll('[data-area-ai]').forEach(el => el.textContent = translations[lang]['area-ai']);
+            document.querySelectorAll('[data-area-telecom]').forEach(el => el.textContent = translations[lang]['area-telecom']);
+            document.querySelectorAll('[data-area-networks]').forEach(el => el.textContent = translations[lang]['area-networks']);
+            document.querySelectorAll('[data-area-petro]').forEach(el => el.textContent = translations[lang]['area-petro']);
+            document.querySelectorAll('[data-area-energy]').forEach(el => el.textContent = translations[lang]['area-energy']);
+            document.querySelectorAll('[data-area-tech-alt]').forEach(el => el.textContent = translations[lang]['area-tech-alt']);
+            
+            // Update stats/objectives section
+            if (document.querySelector('[data-stats-title]')) document.querySelector('[data-stats-title]').textContent = translations[lang]['stats-title'];
+            if (document.querySelector('[data-stats-subtitle]')) document.querySelector('[data-stats-subtitle]').textContent = translations[lang]['stats-subtitle'];
+            
+            // Update objectives
+            document.querySelectorAll('[data-obj-apoiar]').forEach(el => el.textContent = translations[lang]['obj-apoiar']);
+            document.querySelectorAll('[data-obj-integrar]').forEach(el => el.textContent = translations[lang]['obj-integrar']);
+            document.querySelectorAll('[data-obj-desenvolver]').forEach(el => el.textContent = translations[lang]['obj-desenvolver']);
+            document.querySelectorAll('[data-obj-realizar]').forEach(el => el.textContent = translations[lang]['obj-realizar']);
+            document.querySelectorAll('[data-obj-articular]').forEach(el => el.textContent = translations[lang]['obj-articular']);
+            document.querySelectorAll('[data-obj-promover]').forEach(el => el.textContent = translations[lang]['obj-promover']);
+            document.querySelectorAll('[data-obj-elaborar]').forEach(el => el.textContent = translations[lang]['obj-elaborar']);
+            
+            document.querySelectorAll('[data-obj-apoiar-desc]').forEach(el => el.textContent = translations[lang]['obj-apoiar-desc']);
+            document.querySelectorAll('[data-obj-integrar-desc]').forEach(el => el.textContent = translations[lang]['obj-integrar-desc']);
+            document.querySelectorAll('[data-obj-desenvolver-desc]').forEach(el => el.textContent = translations[lang]['obj-desenvolver-desc']);
+            document.querySelectorAll('[data-obj-realizar-desc]').forEach(el => el.textContent = translations[lang]['obj-realizar-desc']);
+            document.querySelectorAll('[data-obj-articular-desc]').forEach(el => el.textContent = translations[lang]['obj-articular-desc']);
+            document.querySelectorAll('[data-obj-promover-desc]').forEach(el => el.textContent = translations[lang]['obj-promover-desc']);
+            document.querySelectorAll('[data-obj-elaborar-desc]').forEach(el => el.textContent = translations[lang]['obj-elaborar-desc']);
+            
+            // Update stats labels
+            document.querySelectorAll('[data-stats-label-1]').forEach(el => el.textContent = translations[lang]['stats-label-1']);
+            document.querySelectorAll('[data-stats-label-2]').forEach(el => el.textContent = translations[lang]['stats-label-2']);
+            document.querySelectorAll('[data-stats-label-3]').forEach(el => el.textContent = translations[lang]['stats-label-3']);
+            
+            // Update contact section
+            if (document.querySelector('[data-contact-title]')) document.querySelector('[data-contact-title]').textContent = translations[lang]['contact-title'];
+            if (document.querySelector('[data-contact-subtitle]')) document.querySelector('[data-contact-subtitle]').textContent = translations[lang]['contact-subtitle'];
+            document.querySelectorAll('[data-contact-whatsapp]').forEach(el => el.textContent = translations[lang]['contact-whatsapp']);
+            document.querySelectorAll('[data-contact-email-label]').forEach(el => el.textContent = translations[lang]['contact-email-label']);
+            
+            // Update form placeholders
+            const inputName = document.querySelector('input[placeholder*="Nome"]') || document.querySelector('input[placeholder*="Name"]');
+            const inputEmail = document.querySelector('input[type="email"]');
+            const textarea = document.querySelector('textarea');
+            const submitBtn = document.querySelector('button[type="submit"]');
+            
+            if (inputName) inputName.placeholder = translations[lang]['contact-name'];
+            if (inputEmail) inputEmail.placeholder = translations[lang]['contact-email'];
+            if (textarea) textarea.placeholder = translations[lang]['contact-message'];
+            if (submitBtn) submitBtn.textContent = translations[lang]['contact-send'];
+            
+            // Update footer
+            if (document.querySelector('[data-footer-contact]')) document.querySelector('[data-footer-contact]').textContent = translations[lang]['footer-contact'];
+            if (document.querySelector('[data-footer-social]')) document.querySelector('[data-footer-social]').textContent = translations[lang]['footer-social'];
+            if (document.querySelector('[data-footer-copy]')) document.querySelector('[data-footer-copy]').textContent = translations[lang]['footer-copy'];
+            
+            // Update mobile menu social label
+            if (document.querySelector('[data-mobile-redes]')) document.querySelector('[data-mobile-redes]').textContent = translations[lang]['mobile-redes'];
+            
+            // Update language indicator
+            document.querySelectorAll('[data-lang-pt]').forEach(el => {
+                el.style.opacity = lang === 'pt' ? '1' : '0.4';
+                el.style.color = lang === 'pt' ? '#003478' : '#9ca3af';
+            });
+            document.querySelectorAll('[data-lang-en]').forEach(el => {
+                el.style.opacity = lang === 'en' ? '1' : '0.4';
+                el.style.color = lang === 'en' ? '#003478' : '#9ca3af';
+            });
+            
+            // Update page language attribute
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en-US';
+        }
+
+        // Initialize language
+        setLanguage(currentLang);
+        
+        // Add event listener with null check
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                currentLang = currentLang === 'pt' ? 'en' : 'pt';
+                setLanguage(currentLang);
+                lucide.createIcons();
+            });
+        }
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('overlay');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Close menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+        });
+    </script>
+    </body>
+    </html>
