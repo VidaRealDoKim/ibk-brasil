@@ -92,6 +92,7 @@
                     <a href="#home" class="hover:text-[#003478] transition-colors data-translate-home">Home</a>
                     <a href="#institucional" class="hover:text-[#003478] transition-colors data-translate-institucional">Institucional</a>
                     <a href="#areas" class="hover:text-[#003478] transition-colors data-translate-areas">Áreas de Atuação</a>
+                    <a href="#projetos" class="hover:text-[#003478] transition-colors data-translate-projetos">Projetos</a>
                     <a href="#contato" class="hover:text-[#003478] transition-colors data-translate-contato">Contato</a>
                 </div>
                 <div class="hidden md:flex items-center gap-4">
@@ -119,6 +120,7 @@
             <a href="#home" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-home">Home</a>
             <a href="#institucional" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-institucional">Institucional</a>
             <a href="#areas" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-areas">Áreas de Atuação</a>
+            <a href="#projetos" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-projetos">Projetos</a>
             <a href="#contato" class="block py-3 text-slate-800 font-medium hover:text-[#003478] transition-colors data-translate-contato">Contato</a>
             <hr class="my-4" />
             <div class="space-y-3">
@@ -401,6 +403,96 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projetos" class="py-20 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#003478] to-[#002c73] bg-clip-text text-transparent" data-projects-title>
+                    Projetos Realizados
+                </h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto" data-projects-subtitle>
+                    Conheça os projetos de sucesso que já desenvolvemos
+                </p>
+            </div>
+
+            <!-- Projects Carousel -->
+            <div class="relative">
+                <div class="overflow-hidden rounded-3xl">
+                    <div class="flex transition-transform duration-500 ease-out" id="projects-carousel">
+                        <!-- Project 1: WasteReactor -->
+                        <div class="min-w-full p-4">
+                            <div class="group relative overflow-hidden rounded-3xl border border-slate-200 shadow-lg hover:shadow-2xl transition-all aspect-[16/9]">
+                                <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/90 via-[#002c73]/70 to-[#413972]/80"></div>
+                                <div class="relative h-full flex flex-col justify-between p-8 md:p-12">
+                                    <div>
+                                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4" data-project-waste-title>WasteReactor</h3>
+                                        <p class="text-lg text-white/90 max-w-2xl" data-project-waste-desc>Plataforma inovadora de gestão e reciclagem de resíduos industriais utilizando inteligência artificial e IoT</p>
+                                    </div>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="inline-block px-3 py-1 bg-[#edc438]/20 text-[#edc438] rounded-full text-sm font-medium">IA & Sustentabilidade</span>
+                                        <span class="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">IoT</span>
+                                    </div>
+                                </div>
+                                <a href="https://wastereactor.com.br" target="_blank" rel="noopener" class="absolute top-6 right-6 inline-flex items-center gap-2 bg-white text-[#003478] px-4 py-2 rounded-full font-semibold hover:bg-[#edc438] transition-all">
+                                    <span data-project-btn-visit>Visitar</span>
+                                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: IBK Brasil -->
+                        <div class="min-w-full p-4">
+                            <div class="group relative overflow-hidden rounded-3xl border border-slate-200 shadow-lg hover:shadow-2xl transition-all aspect-[16/9]">
+                                <div class="absolute inset-0 bg-gradient-to-br from-[#003478]/90 via-[#002c73]/70 to-[#edc438]/40"></div>
+                                <div class="relative h-full flex flex-col justify-between p-8 md:p-12">
+                                    <div>
+                                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4" data-project-ibk-title>IBK Brasil</h3>
+                                        <p class="text-lg text-white/90 max-w-2xl" data-project-ibk-desc>Instituto dedicado a promover parcerias estratégicas em tecnologia e inovação entre Brasil e Coreia do Sul</p>
+                                    </div>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="inline-block px-3 py-1 bg-[#edc438]/20 text-[#edc438] rounded-full text-sm font-medium">Parcerias Internacionais</span>
+                                        <span class="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">Inovação</span>
+                                    </div>
+                                </div>
+                                <a href="https://ibkbrasil.org.br" target="_blank" rel="noopener" class="absolute top-6 right-6 inline-flex items-center gap-2 bg-white text-[#003478] px-4 py-2 rounded-full font-semibold hover:bg-[#edc438] transition-all">
+                                    <span data-project-btn-visit>Visitar</span>
+                                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 3: Placeholder for future projects -->
+                        <div class="min-w-full p-4">
+                            <div class="group relative overflow-hidden rounded-3xl border border-slate-200 shadow-lg hover:shadow-2xl transition-all aspect-[16/9]">
+                                <div class="absolute inset-0 bg-gradient-to-br from-[#002c73]/80 via-[#413972]/60 to-[#003478]/80"></div>
+                                <div class="relative h-full flex flex-col justify-center items-center p-8 md:p-12 text-center">
+                                    <i data-lucide="sparkles" class="w-16 h-16 text-[#edc438] mb-4"></i>
+                                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-4" data-project-coming-title>Mais Projetos em Breve</h3>
+                                    <p class="text-lg text-white/90 max-w-2xl" data-project-coming-desc>Estamos desenvolvendo novas soluções inovadoras</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all">
+                    <i data-lucide="chevron-left" class="w-6 h-6 text-[#003478]"></i>
+                </button>
+                <button id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all">
+                    <i data-lucide="chevron-right" class="w-6 h-6 text-[#003478]"></i>
+                </button>
+
+                <!-- Dots -->
+                <div class="flex justify-center gap-2 mt-6">
+                    <button class="carousel-dot active w-3 h-3 rounded-full bg-[#003478] transition-all" data-index="0"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all" data-index="1"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contato" class="py-20 px-4 relative">
         <div class="max-w-3xl mx-auto">
@@ -503,6 +595,7 @@
                 'data-translate-home': 'Home',
                 'data-translate-institucional': 'Institucional',
                 'data-translate-areas': 'Áreas de Atuação',
+                'data-translate-projetos': 'Projetos',
                 'data-translate-contato': 'Contato',
                 'hero-title': 'Instituto Brasil Koréia',
                 'hero-subtitle': 'Apoio, desenvolvimento, fomentação, articulação e promoção de projetos de educação, pesquisa, desenvolvimento, ciência, tecnologia e inovação.',
@@ -542,6 +635,15 @@
                 'stats-label-1': 'Áreas de Atuação',
                 'stats-label-2': 'Parcerias Estratégicas',
                 'stats-label-3': 'Projetos em Desenvolvimento',
+                'projects-title': 'Projetos Realizados',
+                'projects-subtitle': 'Conheça os projetos de sucesso que já desenvolvemos',
+                'project-waste-title': 'WasteReactor',
+                'project-waste-desc': 'Plataforma inovadora de gestão e reciclagem de resíduos industriais utilizando inteligência artificial e IoT',
+                'project-ibk-title': 'IBK Brasil',
+                'project-ibk-desc': 'Instituto dedicado a promover parcerias estratégicas em tecnologia e inovação entre Brasil e Coreia do Sul',
+                'project-coming-title': 'Mais Projetos em Breve',
+                'project-coming-desc': 'Estamos desenvolvendo novas soluções inovadoras',
+                'project-btn-visit': 'Visitar',
                 'contact-title': 'Entre em Contato',
                 'contact-subtitle': 'Vamos conversar sobre como podemos ajudar sua inovação',
                 'contact-name': 'Nome completo',
@@ -559,6 +661,7 @@
                 'data-translate-home': 'Home',
                 'data-translate-institucional': 'About',
                 'data-translate-areas': 'Areas',
+                'data-translate-projetos': 'Projects',
                 'data-translate-contato': 'Contact',
                 'hero-title': 'Korea Brazil Institute',
                 'hero-subtitle': 'Support, development, promotion, articulation and encouragement of education, research, development, science, technology and innovation projects.',
@@ -598,6 +701,15 @@
                 'stats-label-1': 'Operation Areas',
                 'stats-label-2': 'Strategic Partnerships',
                 'stats-label-3': 'Projects in Development',
+                'projects-title': 'Featured Projects',
+                'projects-subtitle': 'Discover the successful projects we have developed',
+                'project-waste-title': 'WasteReactor',
+                'project-waste-desc': 'Innovative platform for industrial waste management and recycling using artificial intelligence and IoT',
+                'project-ibk-title': 'IBK Brasil',
+                'project-ibk-desc': 'Institute dedicated to promoting strategic partnerships in technology and innovation between Brazil and South Korea',
+                'project-coming-title': 'More Projects Coming Soon',
+                'project-coming-desc': 'We are developing new innovative solutions',
+                'project-btn-visit': 'Visit',
                 'contact-title': 'Get in Touch',
                 'contact-subtitle': 'Let\'s talk about how we can help your innovation',
                 'contact-name': 'Full name',
@@ -621,6 +733,7 @@
             document.querySelectorAll('[data-translate-home]').forEach(el => el.textContent = translations[lang]['data-translate-home']);
             document.querySelectorAll('[data-translate-institucional]').forEach(el => el.textContent = translations[lang]['data-translate-institucional']);
             document.querySelectorAll('[data-translate-areas]').forEach(el => el.textContent = translations[lang]['data-translate-areas']);
+            document.querySelectorAll('[data-translate-projetos]').forEach(el => el.textContent = translations[lang]['data-translate-projetos']);
             document.querySelectorAll('[data-translate-contato]').forEach(el => el.textContent = translations[lang]['data-translate-contato']);
             
             // Update hero section
@@ -673,6 +786,19 @@
             document.querySelectorAll('[data-stats-label-1]').forEach(el => el.textContent = translations[lang]['stats-label-1']);
             document.querySelectorAll('[data-stats-label-2]').forEach(el => el.textContent = translations[lang]['stats-label-2']);
             document.querySelectorAll('[data-stats-label-3]').forEach(el => el.textContent = translations[lang]['stats-label-3']);
+            
+            // Update projects section
+            if (document.querySelector('[data-projects-title]')) document.querySelector('[data-projects-title]').textContent = translations[lang]['projects-title'];
+            if (document.querySelector('[data-projects-subtitle]')) document.querySelector('[data-projects-subtitle]').textContent = translations[lang]['projects-subtitle'];
+            
+            // Update project cards
+            document.querySelectorAll('[data-project-waste-title]').forEach(el => el.textContent = translations[lang]['project-waste-title']);
+            document.querySelectorAll('[data-project-waste-desc]').forEach(el => el.textContent = translations[lang]['project-waste-desc']);
+            document.querySelectorAll('[data-project-ibk-title]').forEach(el => el.textContent = translations[lang]['project-ibk-title']);
+            document.querySelectorAll('[data-project-ibk-desc]').forEach(el => el.textContent = translations[lang]['project-ibk-desc']);
+            document.querySelectorAll('[data-project-coming-title]').forEach(el => el.textContent = translations[lang]['project-coming-title']);
+            document.querySelectorAll('[data-project-coming-desc]').forEach(el => el.textContent = translations[lang]['project-coming-desc']);
+            document.querySelectorAll('[data-project-btn-visit]').forEach(el => el.textContent = translations[lang]['project-btn-visit']);
             
             // Update contact section
             if (document.querySelector('[data-contact-title]')) document.querySelector('[data-contact-title]').textContent = translations[lang]['contact-title'];
@@ -748,7 +874,47 @@
                 overlay.classList.remove('active');
             });
         });
+
+        // Projects Carousel
+        const carousel = document.getElementById('projects-carousel');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('bg-[#003478]');
+                    dot.classList.remove('bg-slate-300');
+                } else {
+                    dot.classList.remove('bg-[#003478]');
+                    dot.classList.add('bg-slate-300');
+                }
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
         });
-    </script>
-    </body>
-    </html>
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentSlide = parseInt(dot.dataset.index);
+                updateCarousel();
+            });
+        });
+
+        // Auto-advance carousel every 8 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 8000);
