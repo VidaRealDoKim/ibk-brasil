@@ -6,40 +6,118 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+debug.log*
 
 # Dependencies
-node_modules
-dist
-dist-ssr
+node_modules/
+dist/
+dist-ssr/
 *.local
+build/
 
 # IDE
-.vscode
-.idea
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
 .DS_Store
 *.sublime-project
+*.sublime-workspace
+.emacs.d/
+.nvim/
+.vim/
+.netrwhist
 
-# Environment
+# Environment & Secrets
 .env
 .env.local
 .env.*.local
+.env.production.local
+.env.test.local
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+!.env.example
 
 # OS
 Thumbs.db
+.AppleDouble
+.LSOverride
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
 
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+.Python
 venv/
 env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Optional
+# Security
+credentials.json
+secrets.json
+.aws/
+.ssh/
+*.pem
+private/
+
+# Backups & Temp
 *.bak
+*.backup
 *.tmp
+*.temp
+*.swp
+*~
+.#*
+
+# Compiled & Generated
+*.class
+*.jar
+*.war
+*.ear
+*.o
+*.pyc
+
+# Testing
+coverage/
+.coverage
+.nyc_output/
+htmlcov/
+
+# Bundle
+bundle/
+*.bundle
+
+# Vercel
+.vercel/
+
+# Do Not Upload
+DO_NOT_UPLOAD_HERE/
+SENSITIVE/
+PRIVATE/
+secrets/
 .vercel
 .next
 
