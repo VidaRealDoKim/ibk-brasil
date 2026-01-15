@@ -13,6 +13,44 @@ dist
 dist-ssr
 *.local
 
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Optional
+*.bak
+*.tmp
+.vercel
+.next
+
+# Do not upload
+DO_NOT_UPLOAD_HERE/
+*.backup
+node_modules
+dist
+dist-ssr
+*.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
