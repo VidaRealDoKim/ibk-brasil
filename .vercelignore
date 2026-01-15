@@ -1,0 +1,18 @@
+# Ignora arquivos desnecessários no deploy
+node_modules/
+src/
+.git/
+.gitignore
+hot-reload-server.py
+ARQUIVOS_OPCIONAIS_EXCLUIR/
+COMPONENTES.md
+DOCUMENTACAO.md
+package-lock.json
+yarn.lock
+vite.config.js
+tailwind.config.js
+postcss.config.js
+.vscode/
+.idea/
+*.md
+!README.md
