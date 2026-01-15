@@ -1,0 +1,17 @@
+# IBK Brasil - Robots.txt para SEO
+# Allow all crawlers to index the site
+User-agent: *
+Allow: /
+Disallow: /DO_NOT_UPLOAD_HERE/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://ibkbrasil.org.br/sitemap.xml
