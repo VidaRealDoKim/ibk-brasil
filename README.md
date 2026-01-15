@@ -158,9 +158,20 @@ git push origin main
 
 ---
 
+## � Documentação
+
+Toda a documentação está centralizada em [`docs/`](docs/):
+
+- **📖 [docs/INDEX.md](docs/INDEX.md)** - Índice completo
+- **🔍 [docs/guides/SEO_GUIDE.md](docs/guides/SEO_GUIDE.md)** - SEO técnico
+- **🤝 [docs/guides/CONTRIBUTING.md](docs/guides/CONTRIBUTING.md)** - Como contribuir
+- **🔒 [docs/security/](docs/security/)** - Políticas de segurança
+
+---
+
 ## 📊 SEO
 
-Veja [SEO_GUIDE.md](SEO_GUIDE.md) para:
+Veja [docs/guides/SEO_GUIDE.md](docs/guides/SEO_GUIDE.md) para:
 - Checklist completo de SEO técnico
 - Recomendações de imagens
 - Palavras-chave principais
@@ -238,7 +249,7 @@ MIT License - veja [LICENSE](LICENSE) para detalhes.
 
 ## 👨‍💻 Contribuições
 
-Leia [CONTRIBUTING.md](CONTRIBUTING.md) para:
+Leia [docs/guides/CONTRIBUTING.md](docs/guides/CONTRIBUTING.md) para:
 - Como reportar bugs
 - Como sugerir features
 - Como enviar pull requests
